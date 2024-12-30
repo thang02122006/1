@@ -32,17 +32,14 @@ int main(int argc, char *argv[]) {
             }
             case 2: {
                 addStore(store, &length); 
-                saveStoresToFile(store, length); 
                 break;
             }
             case 3: {
                 updateStore(store, length); 
-                saveStoresToFile(store, length); 
                 break;
             }
             case 4: {
                 deleteStore(store, &length);  
-                saveStoresToFile(store, length);  
                 break;
             }
             case 5: {
