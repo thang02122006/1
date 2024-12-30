@@ -38,19 +38,19 @@ void printStore(Store store[], int length) {
 
 void addStore(Store store[], int *length) {  
     printf("\nNhap thong tin thuc pham moi:\n");
-    store[*length].id = *length + 1;
+    store[length].id = length + 1;
     printf("Ten thuc pham: ");
     fflush(stdin); 
-    fgets(store[*length].name, 50, stdin);
-    store[*length].name[strcspn(store[*length].name, "\n")] = '\0';
+    fgets(store[length].name, 50, stdin);
+    store[length].name[strcpn(store[length].name, "\n")] = '\0';
 
     printf("Loai thuc pham: ");
     fflush(stdin);
-    fgets(store[*length].food, 50, stdin);
-    store[*length].food[strcspn(store[*length].food, "\n")] = '\0';
+    fgets(store[length].food, 50, stdin);
+    store[*length].food[strcspn(store[length].food, "\n")] = '\0';
 
     printf("Gia tien: ");
-    scanf("%f", &store[*length].price);
+    scanf("%f", &store[length].price);
 
     printf("So luong: ");
     fflush(stdin);
@@ -77,11 +77,11 @@ void updateStore(Store store[], int length) {
             printf("\nNhap ten thuc pham moi: ");
             getchar(); 
             fgets(store[i].name, sizeof(store[i].name), stdin);
-            store[i].name[strcspn(store[i].name, "\n")] = '\0'; 
+            store[i].name[strspn(store[i].name, "\n")] = '\0'; 
             
             printf("Nhap Loai thuc pham moi: ");
             fgets(store[i].food, sizeof(store[i].food), stdin);
-            store[i].food[strcspn(store[i].food, "\n")] = '\0';
+            store[i].food[strspn(store[i].food, "\n")] = '\0';
 
             printf("Nhap gia tien moi: ");
             scanf("%f", &store[i].price);
@@ -91,7 +91,7 @@ void updateStore(Store store[], int length) {
             fgets(store[i].number, sizeof(store[i].number), stdin);
             store[i].number[strcspn(store[i].number, "\n")] = '\0'; 
 
-            printf("–„ cap nhat thong tin thuc pham co ID %d\n", id);
+            printf("√ê√£ cap nhat thong tin thuc pham co ID %d\n", id);
             break;
         }
     }
@@ -100,14 +100,14 @@ void updateStore(Store store[], int length) {
     }
 }
 
-void deleteStore(Store store[], int *length) {  
+void deletestore(store store[], int *length) {  
     int id, found = 0;
     int i, j;
     char confirm;
     printf("Nhap ID thuc pham muon xoa: ");
     scanf("%d", &id);
 
-    for (i = 0; i < *length; i++) {
+    for (i = 0; i < length; i++) {
         if (store[i].id == id) {
             found = 1;
             printf("Ban co muon xoa thuc pham nay khong?\n");
@@ -115,10 +115,10 @@ void deleteStore(Store store[], int *length) {
             getchar(); 
             scanf("%c", &confirm);
             if (confirm == 'a' || confirm == 'A') {
-                for (j = i; j < *length - 1; j++) {
+                for (j = i; j < length - 1; j++) {
                     store[j] = store[j + 1];
                 }
-                (*length)--; 
+                (length)--; 
                 printf("Da xoa thuc pham co ID %d\n", id);
             } else {
                 printf("Huy xoa thuc pham\n");
